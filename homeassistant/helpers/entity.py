@@ -783,7 +783,7 @@ class Entity(
         """
         return None
 
-    @cached_property
+    @property
     def state_attributes(self) -> dict[str, Any] | None:
         """Return the state attributes.
 
@@ -792,7 +792,7 @@ class Entity(
         to generate the initial state attributes.
         Convention for attribute names is lowercase snake_case.
         """
-        return None
+        return self.generate_entity_state_attributes() or None
 
     def generate_entity_state_attributes(self) -> dict[str, Any]:
         """Generate base state attributes dict for entity base components.
